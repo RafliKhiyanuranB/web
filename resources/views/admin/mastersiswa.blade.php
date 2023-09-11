@@ -27,7 +27,7 @@
               <form action="{{ route('destroys', ['id' => $item->id]) }}" method="POST" style="display: inline;">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Siswa?')">Delete</button>
+                <button role="button" class="btn btn-danger deleteButton" >Delete</button>
             </form>
             </td>
         </tr>
@@ -36,8 +36,46 @@
     </div>
 </div>
 
-<style>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+  // Menangani klik tombol "Delete"
+  $('.deleteButton').click(function (e) {
+    e.preventDefault(); // Mencegah form dikirim secara langsung
+    
+    const form = $(this).closest('form'); // Find the nearest form element
+    
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger mr-2'
+      },
+      buttonsStyling: false
+    });
 
-</style>
+    swalWithBootstrapButtons.fire({
+      title: 'Sudah Yakin?',
+      text: "Perubahan tidak akan bisa dikembalikan",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yakin',
+      cancelButtonText: 'Tidak',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Jika pengguna mengonfirmasi, kirim form penghapusan
+        form.submit(); // Submit only the form associated with the clicked button
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        swalWithBootstrapButtons.fire(
+          'Dibatalkan',
+          'Tidak ada perubahan terhadap data ini',
+          'error'
+        );
+      }
+    });
+  });
+});
 
+  </script>
 @endsection

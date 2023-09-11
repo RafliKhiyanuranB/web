@@ -64,8 +64,8 @@ class TambahController extends Controller
         // return redirect()->route('nama_rute_yang_diinginkan');
 
         $request->validate([
-            'name'=>'required',
-            'about'=>'required',
+            'name'=>'required|min:5|max:100',
+            'about'=>'required|min:10|max:100',
             'photo'=>'required|image',
             
         ]);
@@ -78,5 +78,6 @@ class TambahController extends Controller
         ]);
         return redirect()-> route('mastersiswa');
     }
+    
     
 }
