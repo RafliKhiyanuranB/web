@@ -22,7 +22,9 @@ use App\Http\Controllers\TambahController;
 |
 */
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/hiro', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/{id}/detail', [HomeController::class, 'show'])->name('detail');
 Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
 Route::get('/project', [ProjectController::class, 'project'])->name('project');
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
@@ -37,7 +39,7 @@ Route::get('/{id}/editsiswa', [EditController::class, 'editsiswa'])->name('edits
 Route::post('/{id}/editsiswa', [EditController::class, 'editsiswaprocess'])->name('editsiswaprocess');
 // Routing Master
 Route::get('/masterkontak', [MasterController::class, 'masterkontak'])->name('masterkontak');
-Route::get('/masterproject', [MasterController::class, 'masterproject'])->name('masterproject');
+Route::resource('/admin/project', ProjectController::class);
 Route::get('/mastersiswa', [MasterController::class, 'mastersiswa'])->name('mastersiswa');
 // Routing Tambah
 Route::get('/tambahkontak', [TambahController::class, 'tambahkontak'])->name('tambahkontak');

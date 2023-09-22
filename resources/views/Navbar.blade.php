@@ -7,10 +7,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ms-auto">
-                <a class="nav-link active" href="{{ route('home') }}">Home</a>
-                <a class="nav-link active" href="{{ route('about') }}">About</a>
-                <a class="nav-link active" href="{{ route('project') }}">Project</a>
-                <a class="nav-link active" href="{{ route('contact') }}">Contact</a>
+                <a class="nav-link active" href="{{ route('mastersiswa') }}">Login</a>
             </div>
         </div>
     </div>

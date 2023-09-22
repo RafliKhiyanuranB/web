@@ -1,6 +1,6 @@
 @extends('admin.admin')
 @section('title', 'Edit Siswa')
-@section('mastersiswa')
+@section('content')
 
 <div class="card">
     <div class="card-body">

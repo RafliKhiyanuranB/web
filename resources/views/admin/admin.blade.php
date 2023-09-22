@@ -53,7 +53,7 @@
                     <span>MasterKontak</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{Route('masterproject')}}">
+                <a class="nav-link" href="{{Route('project.index')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>MasterProject</span></a>
             </li>
@@ -334,6 +334,7 @@
                         <div class="topbar-divider d-none d-sm-block"></div> --}}
 
                         <!-- Nav Item - User Information -->
+                        <a href="{{ route('home') }}" class="btn btn-success">Go Home Page</a>
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -372,10 +373,10 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                   @yield('content')
+                   <h3>@yield('title')</h3>
 
-                   <div class="siswa">
-                        <h6>@yield('mastersiswa')</h6>
+                   <div>
+                    @yield('content')
                    </div>
 
                 </div>
